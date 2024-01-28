@@ -2,26 +2,30 @@
 
 1. Clone the GitHub repository:
 
-                                                                                                                            git clone https://github.com/docker/getting-started-app.git
+            git clone https://github.com/docker/getting-started-app.git
 
 2. Change the path to the main directory:
-cd getting-started-app
+
+            cd getting-started-app
 
 3. Create Dockerfile
-type nul > Dockerfile
+
+            type nul > Dockerfile
 
 4. Using a text editor or code editor, add the following contents to the Dockerfile (Must Be In Order:
-# syntax=docker/dockerfile:1
 
-FROM node:18-alpine
-WORKDIR /app
-COPY . .
-RUN yarn install --production
-CMD ["node", "src/index.js"]
-EXPOSE 3000
+            # syntax=docker/dockerfile:1
+            
+            FROM node:18-alpine
+            WORKDIR /app
+            COPY . .
+            RUN yarn install --production
+            CMD ["node", "src/index.js"]
+            EXPOSE 3000
 
 5. Build the image
-docker build -t getting-started .
+
+            docker build -t getting-started .
 
 6. Run your container using the docker run command and specify the name of the image you just created:
 docker run -dp 127.0.0.1:3000:3000 getting-started
